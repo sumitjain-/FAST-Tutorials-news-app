@@ -37,8 +37,6 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var ref = window.open('terms.html', '_blank', 'hidden=yes');
-
         console.log('Received Event: ' + id);
     }
 };
