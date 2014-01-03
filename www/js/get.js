@@ -82,3 +82,76 @@ function get_post(post_id){
         $(".post_content").html("Something went wrong. Please try again later.");
     });
 }
+
+function form_validation(){
+    $("#name_error").html("");
+    $("#email_error").html("");
+    $("#mobnum_error").html("");
+    $("#course_error").html("");
+    
+    var register_name = $("#register_name").val();
+    var register_email = $("#register_email").val();
+    var register_mobnum = $("#register_mobnum").val();
+    var register_course = $("#register_course").val();
+    var valid = 1 ;
+    
+    // if( register_name == ""){
+    //     $("#name_error").html("Please enter a valid name");
+    //     valid = 0 ;        
+    // };
+    
+    // if( register_email == ""){
+    //     $("#email_error").html("Please enter a valid E-mail ID");
+    //     valid = 0 ;
+    // };
+    
+    // if (register_course.length == 0) {
+    //     $("#course_error").html("Invalid course");
+    //     console.log(register_course);
+    // };
+
+    // if( register_mobnum.length != 10){
+    //     $("#mobnum_error").html("Please enter a valid mobile number");
+    //     valid = 0 ;
+    // }else{
+    //     if(register_mobnum.indexOf("+91") >= 0){
+    //         $("#mobnum_error").html("Please enter mobile number without country code");
+    //         valid = 0 ;
+    //     }    
+    // };
+    console.log(valid);
+    return valid ;
+}
+
+function register_device(){
+    $("#reg_key").val("abc");
+    $("#reg_platform").val("Android");
+    var form = $("#reg_form"),
+        formData = form.serialize(),
+        formUrl = SERVER_URL+form.attr("action"),  
+        formMethod = form.attr('method'),
+        responseMsg = $("#register_response");
+        
+    var check_form = form_validation();
+    console.log(formUrl);
+    if(check_form){
+        $.ajax({  
+            url: formUrl,
+            dataType: "html",
+            type: formMethod,  
+            data: formData,  
+            success:function(data){  
+                console.log("Response: "+data);
+                responseMsg.html(data);
+            },
+            error:function(){
+                responseMsg.html("something went wrong");
+            }
+        });
+        return false ;
+    }else{
+        return false ;
+    }
+    return false ;
+
+}

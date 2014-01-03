@@ -5,7 +5,6 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="css/jquery.mobile-1.4.0.min.css">
-        <link rel="stylesheet" type="text/css" href="css/hook.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <title>FAST</title>
     </head>
@@ -23,25 +22,25 @@
                 <ul data-role="listview">
                     <li id="form_container">
                         <div>
-                            <form id="reg_form">
+                            <form id="reg_form" onsubmit="return register_device()" method="post" action="public_lib/register_user">
                                 <h3>Register here</h3>
                                 <input type="text" placeholder="Name" id="register_name" name="register_name">
-                                <input type="text" placeholder="Mobile number">
-                                <input type="text" placeholder="E-mail" >
+                                <br><p id="name_error"></p>
+                                <input type="text" placeholder="Mobile number" name="register_mobnum" id="register_mobnum">
+                                <br><p id="mobnum_error"></p>
+                                <input type="text" placeholder="E-mail" name="register_email" id="register_email">
+                                <br><p id="email_error"></p>
                                 <select name="register_course" id="register_course">
-                                    <option value="">Last exam attempted</option>
-                                    <option value="CA CPT">CA CPT</option>
-                                    <option value="CA PCC">CA PCC</option>
-                                    <option value="CA Final">CA Final</option>
-                                    <option value="CS 1">CS 1</option>
-                                    <option value="CS 2">CS 2</option>
-                                    <option value="CS 3">CS 3</option>
-                                    <option value="XI">XI</option>
-                                    <option value="XII">XII</option>
+                                    <option value="">Course</option>
+                                    <option value="CS Foundation">CS Foundation</option>
+                                    <option value="CS Executive">CS Executive</option>
+                                    <option value="CS Professional">CS Professional</option>
                                 </select>
-                                <input name="reg_key" type="hidden">
-                                <input name="reg_platform" type="hidden">
+                                <br><p id="course_error"></p>
+                                <input name="reg_key" type="hidden" name="reg_key" id="reg_key">
+                                <input name="reg_platform" type="hidden" name="reg_platform" id="reg_platform">
                                 <input type="submit" value="Send" data-icon="arrow-r" data-iconpos="right"/>
+                                <br><p id="register_response"></p>
                             </form>
                         </div>
                     </li>
