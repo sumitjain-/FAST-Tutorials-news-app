@@ -17,11 +17,12 @@
                 <a href="#" onclick="new_feed()" data-icon="refresh" class="ui-btn-right">Refresh</a>
             </div>
             <div data-role="content">
-                <div class="hook"></div>
                 <ul id="notif_display" data-role="listview"></ul>
             </div>
             <div data-role="panel" id="Mypanel" data-position="left" data-display="push">
-                <p>Blah blah</p>
+                <ul data-role="listview">
+                    <li><a href="terms.html" id="terms_btn">Terms of use</a></li>
+                </ul>
             </div>
         </div>
         <div id="post" data-role="page" data-add-back-btn="true">
@@ -46,12 +47,14 @@
         <script type="text/javascript" src="js/get.js"></script>
         <script type="text/javascript">
             app.initialize();
-            
         </script>
         
         <script type="text/javascript">
             $(document).ready(function(){
                 feed_init();
+                $("terms_btn").click(function(){
+                    ref.show();
+                });
             });
         </script>
     </body>

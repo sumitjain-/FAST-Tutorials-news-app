@@ -61,14 +61,14 @@ function new_feed(){
 
 function get_post(post_id){
     $(".post_headline").html("Loading...");
-    $(".post_date").html("Loading...");
+    $(".post_date").html("FAST | Loading...");
     $(".post_content").html("Loading...");
     $(".post_feat_img").attr("src", "");    
     
     $.getJSON(SERVER_URL+'public_lib/get_post/'+post_id, function(data){
         var post_date = data[0].post_date;
         $(".post_headline").html(data[0].post_title);
-        $(".post_date").html("DNN Times | "+moment(data[0].post_date, "DD-MM-YYYY").format("Do MMM YYYY"));
+        $(".post_date").html("FAST | "+moment(data[0].post_date, "DD-MM-YYYY").format("Do MMM YYYY"));
         $(".post_content").html(data[0].post_place+": "+ data[0].post_content);
         if(data[0].post_img == "no_image" || data[0].post_img == 'default.jpg'){
             $(".post_feat_img").attr("src", 'img/default.png');
