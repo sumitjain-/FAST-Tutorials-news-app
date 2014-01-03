@@ -16,7 +16,6 @@ function feed_init(){
         $('#notif_display').listview('refresh');
        console.log("first = "+first+" , last = "+last);
        console.log(data);
-       hook_refresh();
     });
 }
 
@@ -35,16 +34,6 @@ function load_more(){
         console.log("first = "+first+" , last = "+last);
         if(last == 2 ){
             $('#notif_display').append('<li data-theme="b"><h1>No more posts.. </h1></li>');
-            $('.hook').hook({
-                reloadPage: false,
-                swipeDistance: 100,
-                reloadEl: function(){
-                    console.log("Hook=> first = "+first+" , last = "+last);
-                    if (first) {
-                        new_feed();
-                    };
-                }
-            });
         }else{
             $('#notif_display').append('<li id="loadMore" data-theme="'+current_theme+'" data-inset="true"><a href="#index" onclick="load_more()"><h1>Load more</h1></a></li>');
         }
@@ -58,7 +47,7 @@ function new_feed(){
     $.getJSON(SERVER_URL+'public_lib/refresh/'+first, function(data){
         no_of_notif = data.length ;
         if(data.length == 0 ){
-            console.log("No new feeds");
+            navigator.notification.alert("No new feeds");
         }else{
             for(i=0; i < no_of_notif ; i++){
                 $('#notif_display').prepend('<li data-theme="'+current_theme+'"><a class="" id="notif" href="#post" data-transition="slide" onclick="get_post('+data[i].post_id+')"><h4>'+ data[i].post_title +'</h4><p>'+moment(data[i].post_date, "DD-MM-YYYY").format("Do MMM YYYY")+'</p></a></li>');
@@ -91,20 +80,5 @@ function get_post(post_id){
         $(".post_headline").html("");
         $(".post_date").html("");
         $(".post_content").html("Something went wrong. Please try again later.");
-    });
-
-    hook_refresh();
-}
-
-function hook_refresh(){
-    $('.hook').hook({
-        reloadPage: false,
-        swipeDistance: 100,
-        reloadEl: function(){
-            console.log("Hook=> first = "+first+" , last = "+last);
-            if (first) {
-                new_feed();
-            };
-        }
     });
 }
