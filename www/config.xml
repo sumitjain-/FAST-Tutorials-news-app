@@ -51,4 +51,5 @@
     <access origin="*" subdomains="true"  />
     <access uri="*" subdomains="true"  />
     <access origin="http://sumitja.in" subdomains="true" />
+    <gap:plugin name="com.phonegap.plugins.pushplugin" />
 </widget>
