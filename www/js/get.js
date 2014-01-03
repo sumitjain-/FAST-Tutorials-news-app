@@ -47,7 +47,7 @@ function new_feed(){
     $.getJSON(SERVER_URL+'public_lib/refresh/'+first, function(data){
         no_of_notif = data.length ;
         if(data.length == 0 ){
-            navigator.notification.alert("No new feeds");
+            alert("No new feeds");
         }else{
             for(i=0; i < no_of_notif ; i++){
                 $('#notif_display').prepend('<li data-theme="'+current_theme+'"><a class="" id="notif" href="#post" data-transition="slide" onclick="get_post('+data[i].post_id+')"><h4>'+ data[i].post_title +'</h4><p>'+moment(data[i].post_date, "DD-MM-YYYY").format("Do MMM YYYY")+'</p></a></li>');
