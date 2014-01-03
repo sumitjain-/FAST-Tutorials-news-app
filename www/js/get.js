@@ -95,31 +95,30 @@ function form_validation(){
     var register_course = $("#register_course").val();
     var valid = 1 ;
     
-    // if( register_name == ""){
-    //     $("#name_error").html("Please enter a valid name");
-    //     valid = 0 ;        
-    // };
+    if( register_name == ""){
+        $("#name_error").html("Please enter a valid name");
+        valid = 0 ;        
+    };
     
-    // if( register_email == ""){
-    //     $("#email_error").html("Please enter a valid E-mail ID");
-    //     valid = 0 ;
-    // };
+    if( register_email == ""){
+        $("#email_error").html("Please enter a valid E-mail ID");
+        valid = 0 ;
+    };
     
-    // if (register_course.length == 0) {
-    //     $("#course_error").html("Invalid course");
-    //     console.log(register_course);
-    // };
+    if (register_course.length == 0) {
+        $("#course_error").html("Invalid course");
+        console.log(register_course);
+    };
 
-    // if( register_mobnum.length != 10){
-    //     $("#mobnum_error").html("Please enter a valid mobile number");
-    //     valid = 0 ;
-    // }else{
-    //     if(register_mobnum.indexOf("+91") >= 0){
-    //         $("#mobnum_error").html("Please enter mobile number without country code");
-    //         valid = 0 ;
-    //     }    
-    // };
-    console.log(valid);
+    if( register_mobnum.length != 10){
+        $("#mobnum_error").html("Please enter a valid mobile number");
+        valid = 0 ;
+    }else{
+        if(register_mobnum.indexOf("+91") >= 0){
+            $("#mobnum_error").html("Please enter mobile number without country code");
+            valid = 0 ;
+        }    
+    };
     return valid ;
 }
 
