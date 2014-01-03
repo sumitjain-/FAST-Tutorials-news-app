@@ -21,6 +21,30 @@
             </div>
             <div data-role="panel" id="Mypanel" data-position="left" data-display="push">
                 <ul data-role="listview">
+                    <li id="form_container">
+                        <div>
+                            <form id="reg_form">
+                                <h3>Register here</h3>
+                                <input type="text" placeholder="Name" id="register_name" name="register_name">
+                                <input type="text" placeholder="Mobile number">
+                                <input type="text" placeholder="E-mail" >
+                                <select name="register_course" id="register_course">
+                                    <option value="">Last exam attempted</option>
+                                    <option value="CA CPT">CA CPT</option>
+                                    <option value="CA PCC">CA PCC</option>
+                                    <option value="CA Final">CA Final</option>
+                                    <option value="CS 1">CS 1</option>
+                                    <option value="CS 2">CS 2</option>
+                                    <option value="CS 3">CS 3</option>
+                                    <option value="XI">XI</option>
+                                    <option value="XII">XII</option>
+                                </select>
+                                <input name="reg_key" type="hidden">
+                                <input name="reg_platform" type="hidden">
+                                <input type="submit" value="Send" data-icon="arrow-r" data-iconpos="right"/>
+                            </form>
+                        </div>
+                    </li>
                     <li><a href="terms.html" id="terms_btn">Terms of use</a></li>
                 </ul>
             </div>

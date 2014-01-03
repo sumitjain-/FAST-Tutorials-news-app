@@ -44,6 +44,10 @@ hr {
     margin:20px 3% ;
 }
 
+#reg_form {
+	
+}
+
 /* Large desktop */
 @media only screen and (min-width: 980px) { 
 
@@ -227,4 +231,8 @@ input.ui-input-text {
     font-size:75% ;
 }
 
+}
+
+#form_container {
+	background: #fee ;
 }
